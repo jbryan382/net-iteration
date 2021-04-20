@@ -17,7 +17,34 @@ namespace DotnetIteration
            Once you finish a method and have it correct, the test will tell you how
            the next method is working.
         */
+        //  
+        // 0.5) Complete the method named `whispering` that takes an list of
+        //    words as an argument and returns a new list with all
+        //    the words forced to lowercase.
+        //
+        public static IEnumerable<string> Whispering(List<string> words)
+        {
+            var whispers = words.Select(word => word.ToLower());
+            return whispers;
+        }
 
+        // 
+        // 0.6) Complete the method BestDragonOfTheAge that accepts an list of
+        //    dragon objects AND an age and returns the colors of dragons that are
+        //    from that age AND have a health of 290 or more.
+        // 
+        // A movie object looks like this:
+        // 
+        // {
+        //   color: "Green",
+        //   health: 290,
+        //   Age: 1455
+        // }
+        // 
+        public static IEnumerable<string> BestDragonOfTheAge(List<Dragon> data, int age)
+        {
+            return data.Where(dragon => dragon.Age == age && dragon.Health >= 290).Select(dragon => dragon.Color);
+        }
 
         //  
         // 1) Complete the method named `yelling` that takes an list of
@@ -26,7 +53,7 @@ namespace DotnetIteration
         //
         public static IEnumerable<string> Yelling(List<string> words)
         {
-            throw new System.NotImplementedException();
+            return words.Select(word => word.ToUpper());
         }
 
 
@@ -37,7 +64,7 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> Double(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            return numbers.Select(number => number * 2);
         }
 
 
@@ -49,7 +76,7 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> StringyIndexes(List<string> data)
         {
-            throw new System.NotImplementedException();
+            return data.Select((word, index) => $"{word} is at index {index}");
         }
 
 
@@ -59,7 +86,7 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenSurvive(List<int> data)
         {
-            throw new System.NotImplementedException();
+            return data.Where((element) => element % 2 == 0);
         }
 
 
@@ -70,7 +97,7 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenIndexedSurvive(List<int> data)
         {
-            throw new System.NotImplementedException();
+            return data.Where((element, index) => index % 2 == 0);
         }
 
 
@@ -89,7 +116,7 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> BestMovieOfTheYear(List<Movie> data, int year)
         {
-            throw new System.NotImplementedException();
+            return data.Where((movie) => movie.Year == year && movie.Score >= 90).Select(movie => movie.Name);
         }
 
 
@@ -99,7 +126,7 @@ namespace DotnetIteration
         // 
         public static bool EveryoneIsOdd(List<int> data)
         {
-            throw new System.NotImplementedException();
+            return data.All(element => element % 2 != 0);
         }
 
 
@@ -110,7 +137,7 @@ namespace DotnetIteration
         // 
         public static string FindTheNeedle(List<string> data)
         {
-            throw new System.NotImplementedException();
+            return data.FirstOrDefault(word => word.Contains("needle"));
         }
 
 
@@ -121,7 +148,9 @@ namespace DotnetIteration
         // 
         public static int FindTheNeedleIndex(List<string> data)
         {
-            throw new System.NotImplementedException();
+            return data.FindIndex(word => word.Contains("needle"));
+            // var foundNeedle = data.FirstOrDefault(word => word.Contains("needle"));
+            // return data.IndexOf(foundNeedle);
         }
 
 
@@ -132,7 +161,7 @@ namespace DotnetIteration
         // 
         public static bool SomeoneToLove(List<string> data)
         {
-            throw new System.NotImplementedException();
+            return data.Any(flower => flower.Length == 4);
         }
     }
 }
